@@ -1,0 +1,34 @@
+README 
+Модуль для вывода сообщений Alerts. 
+Подключить в bootstrap.php 
+<?php
+Kohana::modules(array(
+	...
+    'alerts' => MODPATH.'alerts',
+));
+?>
+
+Ипользовать так:
+<?php 
+	public function action_index()
+    {
+        echo Alerts::factory(Alerts::ALERTS_SUCCESS, array('Текст уведомления'), 'Заголовок уведомления')->render();
+    }
+
+ ?>
+
+ или так (вывод сообщений валидации): 
+ <?php
+	public function action_index()
+    {
+            try
+        {
+        $user = new Model_User;
+        $user->create_user($value, array('username', 'password', 'email',));
+        }
+        catch (Kohana_ORM_Validation_Exception $e)
+        {
+        echo Alerts::factory(Alerts::ALERTS_ERROR, $e->errors('models'))->render();
+        }
+    }
+ ?>
