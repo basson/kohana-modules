@@ -22,6 +22,7 @@ class Kohana_Alerts {
      * @param string Тип уведомления
      * @param array  Массив с текстом уведомлений
      * @param string Заголовок уведомления
+     * @param string Название группы конфига
      * @return  void
      */
     public static function factory($type, $alerts_array, $title = NULL, $group= NULL)
@@ -35,6 +36,7 @@ class Kohana_Alerts {
      * @param string Тип уведомления
      * @param array  Массив с текстом уведомлений
      * @param string Заголовок уведомления
+     * @param string Название группы конфига
      * @return  void
      */
     public function __construct($type, $alerts_array, $title = NULL, $group = NULL)

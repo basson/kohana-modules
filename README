@@ -32,3 +32,30 @@ Kohana::modules(array(
         }
     }
  ?>
+
+ Модуль для вывода медиа файлов и js Media. 
+ Подключить в bootstrap.php 
+<?php
+Kohana::modules(array(
+	...
+    'media' => MODPATH.'media',
+));
+?>
+Ипользовать так:
+
+В нужном экшене подключаем файлы : 
+<?php
+    public function action_index()
+    {
+		Media::factory()->add('bootstrap-tooltip', Media::JS);
+    }
+?>
+
+В представлении выводим : 
+
+<?php
+	// Файлы js
+	echo Media::factory()->render(Media::JS);
+	// Файлы css
+	echo Media::factory()->render(Media::CSS);
+?>
